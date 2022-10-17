@@ -17,6 +17,7 @@ Complete all of the setup as mentioned in [the Setup doc](setup.md).
 **Prepare checkpoints**
 1) Reshard accordingly with `metaseq/scripts/reshard_mp.py` with `drop_optimizer_state=True`. Example usage: `bash metaseq/scripts/reshard_mp_launch.sh ${SHARDED_MODEL_PATH}/checkpoint_last $RESHARDED_PATH $MODEL_PARALLEL 1`. MODEL_PARALLEL is 8 for OPT_175B. Change it according for other model sizes.
 2) Modify ```metaseq/service/constants.py``` to update the model path, bpe file path, and MODEL_PARALLEL. 
+3) Move the two gpt* files from projects/OPT/assets/ to the checkpoint path
 
 **Run locally on a worker**
 
